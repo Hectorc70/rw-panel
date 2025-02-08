@@ -25,7 +25,7 @@ const LoginPage: React.FC = () => {
       setStatusButton(StatusButton.Loading)
       await AuthService.login(data.username, data.password)
       localStorage.setItem(lsUsername, data.username)
-      navigate(routesNames.companiesPage)
+      navigate(routesNames.companiesPage, { replace: true })
       setStatusButton(StatusButton.Enabled)
     } catch (error: any) {
       toast.error(error.message)

@@ -23,6 +23,13 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
         navigate(routesNames.loginPage, { replace: true })
         localStorage.clear()
     }
+    const handleGoBack = () => {
+
+        if (window.history.length > 1) {
+            navigate(-1);
+        }
+
+    };
     return (
         <header className="flex justify-between items-center pr-6 py-2 bg-light-background text-onPrimary bg-background ">
             <button
@@ -33,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
             </button>
             <div className="flex items-center justify">
                 <div className="bg-primary p-1 rounded-md mr-2 hover:bg-hoverPrimary">
-                    <IoChevronBackOutline className="text-xl cursor-pointer text-onPrimary" onClick={() => navigate(-1)} />
+                    <IoChevronBackOutline className="text-xl cursor-pointer text-onPrimary" onClick={handleGoBack} />
 
                 </div>
                 <span className="text-primary font-bold text-2xl">{title}</span>
