@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { ScreenStatus, StatusButton } from "@/models/enums";
-import { useEffect, useState, } from "react";
-import { useForm } from "react-hook-form";
+
+import {  StatusButton } from "@/models/enums";
+import { useEffect, } from "react";
+// import { useForm } from "react-hook-form";
 import ButtonLarge from "@/components/ButtonLarge";
 import { Toaster } from "react-hot-toast";
 const HomePage: React.FC = () => {
-  const [statusScreen, setStatusScreen] = useState<ScreenStatus>(ScreenStatus.success)
-  const [data, setData] = useState<any>([])
+  // const [statusScreen, setStatusScreen] = useState<ScreenStatus>(ScreenStatus.success)
+  // const [data, setData] = useState<any>([])
 
-  const { register, formState: { errors }, setValue, getValues } = useForm<IForm>()
+  // const { register, formState: { errors }, setValue, getValues } = useForm<IForm>()
   useEffect(() => {
     // init()
   }, [])

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IOptionSelect } from '@/models/forms.model';
+import { IOptionSelect } from '@/models/select.model';
 import React from 'react';
 import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
