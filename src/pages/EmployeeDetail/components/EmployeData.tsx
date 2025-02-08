@@ -3,16 +3,20 @@ import ButtonLarge from "@/components/ButtonLarge";
 import FormInput from "@/components/Input";
 import { IEmploye } from "@/models/employees/employee.model";
 import { ScreenStatus } from "@/models/enums";
+import { changeTitle } from "@/redux/globalSlice";
+import { AppDispatch } from "@/redux/store";
 import { routesNames } from "@/router/routes";
 import EmployeesService from "@/services/employess.service";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FaMobile, FaWpforms } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 
 const EmployeDataComponent: React.FC = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch<AppDispatch>();
   const { id } = useParams<{ id: string }>();
   const [statusScreen, setStatusScreen] = useState<ScreenStatus>(ScreenStatus.success)
   const { register, handleSubmit, formState: { errors }, reset, setError } = useForm<IEmploye>()
@@ -22,6 +26,9 @@ const EmployeDataComponent: React.FC = () => {
       if (id) {
         const response = await EmployeesService.getDetail(id)
         reset(response)
+        dispatch(changeTitle(response.names ?? 'Editar empleado'));
+      } else {
+        dispatch(changeTitle('Crear empleado'));
       }
     } catch (error: any) {
       toast.error(error.message)
@@ -40,12 +47,12 @@ const EmployeDataComponent: React.FC = () => {
       if (id) {
         await EmployeesService.edit(data)
       } else {
-        if(data.password ===undefined || data.password===''){
+        if (data.password === undefined || data.password === '') {
           toast.error('La contraseña es requerida')
           setError('password', { type: 'manual', message: 'La contraseña es requerida' })
           return
         }
-        if(data.username ===undefined || data.username===''){
+        if (data.username === undefined || data.username === '') {
           toast.error('El usuario es requerido')
           setError('username', { type: 'manual', message: 'El usuario es requerido' })
           return

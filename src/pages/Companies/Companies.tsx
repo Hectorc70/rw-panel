@@ -18,6 +18,9 @@ import { FaFileExcel } from "react-icons/fa6";
 import { ICompany } from "@/models/companie.model";
 import CompaniesService from "@/services/companies.service";
 import { routesNames } from "@/router/routes";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { changeTitle } from "@/redux/globalSlice";
 
 const CompaniesPage: React.FC = () => {
   // type FormValues = {
@@ -38,7 +41,7 @@ const CompaniesPage: React.FC = () => {
     getValues: exportGetValues,
     formState: { errors: formExportErrors } // Renombramos errors a formExportErrors
   } = useForm<IForm>();
-  // const [statusButton, setStatusButton] = useState(StatusButton.Enabled)
+  const dispatch = useDispatch<AppDispatch>();
   const [isShowModal, setIsShowModal] = useState<boolean>(false)
   const [reports, setReports] = useState<Array<ICompany>>([])
   const [statusScreen, setStatusScreen] = useState<ScreenStatus>(ScreenStatus.success)
@@ -51,6 +54,7 @@ const CompaniesPage: React.FC = () => {
 
   const init = () => {
     try {
+      dispatch(changeTitle("Empresas"));
       getData()
     } catch (error: any) {
       toast.error(error.message)

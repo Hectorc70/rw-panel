@@ -3,6 +3,8 @@ import ButtonLarge from "@/components/ButtonLarge";
 import FormInput from "@/components/Input";
 import { CompanyModel, ICompany } from "@/models/companie.model";
 import { ScreenStatus } from "@/models/enums";
+import { changeTitle } from "@/redux/globalSlice";
+import { AppDispatch } from "@/redux/store";
 import { routesNames } from "@/router/routes";
 import CompaniesService from "@/services/companies.service";
 import { useEffect, useState } from "react";
@@ -10,9 +12,11 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FaWpforms } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 
 const CompanyComponent: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate()
   const { id } = useParams<{ id: string }>();
   const [images, setImages] = useState<File | undefined>();
@@ -25,6 +29,9 @@ const CompanyComponent: React.FC = () => {
       if (id) {
         const response = await CompaniesService.getDetail(id)
         reset(response)
+        dispatch(changeTitle(response.name_company));
+      } else {
+        dispatch(changeTitle('Crear empresa'));
       }
     } catch (error: any) {
       toast.error(error.message)

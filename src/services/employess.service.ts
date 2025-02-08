@@ -25,7 +25,7 @@ const getAll = async (page: number) => {
   }
 }
 
-const getDetail = async (id: string) => {
+const getDetail = async (id: string):Promise<IEmploye> => {
   try {
     const token = localStorage.getItem(lsToken)
     const response = await axios.get(`${baseApi}employees/detail/${id}`,
@@ -36,7 +36,7 @@ const getDetail = async (id: string) => {
         }
       }
     )
-    return response.data.data
+    return response.data.data as IEmploye
   } catch (e: any) {
     throw handleError(e)
   }

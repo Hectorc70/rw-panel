@@ -12,6 +12,9 @@ import { RiEditFill } from "react-icons/ri";
 import { IEmploye } from "@/models/employees/employee.model";
 import EmployeesService from "@/services/employess.service";
 import { routesNames } from "@/router/routes";
+import { AppDispatch } from "@/redux/store";
+import { useDispatch } from "react-redux";
+import { changeTitle } from "@/redux/globalSlice";
 
 const EmployePage: React.FC = () => {
 
@@ -19,6 +22,7 @@ const EmployePage: React.FC = () => {
   //   start_date: string,
   //   end_date: string
   // }
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate()
 
   // const { register, formState: { errors } } = useForm<FormValues>()
@@ -40,6 +44,7 @@ const EmployePage: React.FC = () => {
 
   const init = () => {
     try {
+      dispatch(changeTitle("Empleados"));
       getData()
     } catch (error: any) {
       toast.error(error.message)
