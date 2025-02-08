@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
     "@types/node": "^22.10.5",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.9",
@@ -20,8 +21,10 @@
     "react-hook-form": "^7.54.2",
     "react-hot-toast": "^2.5.1",
     "react-icons": "^5.4.0",
+    "react-redux": "^9.2.0",
     "react-router": "^7.1.1",
-    "react-router-dom": "^7.1.1"
+    "react-router-dom": "^7.1.1",
+    "redux": "^5.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

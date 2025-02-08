@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
             <div className=" flex flex-row items-center">
                 <div className="flex flex-row items-center">
                     <FaUser />
-                    <span className="font-bold text-onPrimary px-3">{username}</span>
+                    <span className="font-bold text-primary px-3">{username}</span>
                 </div>
                 <div className="ml-10">
                     <ButtonLargeSecondary
