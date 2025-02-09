@@ -74,7 +74,7 @@ const CheckinHistorialPage: React.FC = () => {
       },
       {
         accessorKey: 'created_date',
-        header: 'Horario de checkin',
+        header: 'Último checkin',
         size: 100
       },
     ], []
