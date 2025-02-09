@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { routesNames } from "@/router/routes";
 import logo from '@/assets/logo.png'
 import { FaHome, FaPeopleCarry } from "react-icons/fa";
+import { FaBuildingCircleCheck } from "react-icons/fa6";
 
 // Definimos los tipos de las props
 interface SidebarProps {
@@ -42,6 +43,16 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 >
                     <FaPeopleCarry className="text-lg" />
                     <span className={`${!isOpen && "hidden"} sm:block`}>Empleados</span>
+                </NavLink>
+                <NavLink
+                    to={routesNames.checkInHistorialPage}
+                    className={({ isActive }) =>
+                        `flex items-center rounded-lg gap-4 p-2 py-3 text-sm  text-primary bg-hintColor hover:bg-primary hover:text-onPrimary ${isActive ? "text-white bg-primary " : "text-onPrimary"
+                        }`
+                    }
+                >
+                    <FaBuildingCircleCheck className="text-lg" />
+                    <span className={`${!isOpen && "hidden"} sm:block`}>Historial Check-In</span>
                 </NavLink>
             </nav>
 

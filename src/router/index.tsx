@@ -7,6 +7,7 @@ import CompaniesPage from "@/pages/Companies/Companies";
 import CompanyDetailPage from "@/pages/CompanieDetail/CompanieDetail";
 import EmployePage from "@/pages/Employees/Employees";
 import EmployeeDetailPage from "@/pages/EmployeeDetail/EmployeeDetail";
+import CheckinHistorialPage from "@/pages/CheckInHistorial/CheckInHistorial";
 
 
 
@@ -53,6 +54,16 @@ const router = createBrowserRouter([
         path: routesNames.employeesDetailPage
         , element: <EmployeeDetailPage></EmployeeDetailPage>
       },
+      //CHECK IN
+      {
+        path: routesNames.checkInHistorialPage
+        , element: <CheckinHistorialPage></CheckinHistorialPage>
+      },
+      {
+        path: routesNames.checkInHistorialEmployePage
+        , element: <CheckinHistorialPage></CheckinHistorialPage>
+      },
+      // CheckinHistorialPage
     ],
   },
 ]);

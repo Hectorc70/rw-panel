@@ -12,4 +12,7 @@ export const routesNames = {
     employeesCreatePage: '/employees/create/',
     employeesDetailPage: '/employees/detail/:id',
     employeesDetailPageName: '/employees/detail/',
+
+    checkInHistorialPage: '/checkin-historial',
+    checkInHistorialEmployePage: '/checkin-historial/employe/:employe',
 };
