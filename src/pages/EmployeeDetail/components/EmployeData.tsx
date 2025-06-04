@@ -63,7 +63,7 @@ const EmployeDataComponent: React.FC = () => {
       if (id) {
         toast.success('Empleado editado correctamente')
       } else {
-        navigate(routesNames.companiesPage, { replace: true })
+        navigate(routesNames.employeesPage, { replace: true })
         toast.success('Empleado creado correctamente')
       }
 
@@ -150,7 +150,7 @@ const EmployeDataComponent: React.FC = () => {
             <span className="text-start  w-full font-bold text-xl ml-3">USUARIO APP</span>
           </div>
           <div className="w-full  grid grid-cols-1 md:grid-cols-3 gap-4 bg-background m-2 rounded-lg p-2">
-            <FormInput label="Usuario" maxLength={40} name="username"
+            <FormInput label="Usuario" maxLength={40} name="username-rw"
               error={errors.username} register={register('username',
                 {
                   required: {

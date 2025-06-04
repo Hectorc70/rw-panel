@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 import { ScreenStatus } from "@/models/enums";
 import { useEffect, useMemo, useState } from "react";
 import { MaterialReactTable, useMaterialReactTable } from "material-react-table";
 import toast, { Toaster } from "react-hot-toast";
 import { MRT_Localization_ES } from 'material-react-table/locales/es'
-import { RiEditFill } from "react-icons/ri";
+// import { RiEditFill } from "react-icons/ri";
 import EmployeesService from "@/services/employess.service";
-import { routesNames } from "@/router/routes";
+// import { routesNames } from "@/router/routes";
 import { AppDispatch } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { changeTitle } from "@/redux/globalSlice";
@@ -21,7 +21,7 @@ const CheckinHistorialPage: React.FC = () => {
   //   end_date: string
   // }
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   // const { register, formState: { errors } } = useForm<FormValues>()
   // const {
@@ -36,7 +36,7 @@ const CheckinHistorialPage: React.FC = () => {
 
   const init = () => {
     try {
-      dispatch(changeTitle("Empleados"));
+      dispatch(changeTitle("Historial de checkin"));
       getData()
     } catch (error: any) {
       toast.error(error.message)
@@ -125,13 +125,13 @@ const CheckinHistorialPage: React.FC = () => {
         </svg>
       </div>
     },
-    renderRowActions: ({ row }) => {
-      return (
-        <div className="flex flex-row justify-center items-center">
-          <RiEditFill className=" text-xl cursor-pointer hover:text-hoverPrimary" onClick={() => navigate(`${routesNames.employeesDetailPageName}${row.original.id}`)} />
-        </div>
-      )
-    },
+    // renderRowActions: ({ row }) => {
+    //   return (
+    //     <div className="flex flex-row justify-center items-center">
+    //       <RiEditFill className=" text-xl cursor-pointer hover:text-hoverPrimary" onClick={() => navigate(`${routesNames.employeesDetailPageName}${row.original.id}`)} />
+    //     </div>
+    //   )
+    // },
     enableColumnActions: true,
     enableColumnFilters: true,
     enableStickyFooter: true,
